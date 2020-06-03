@@ -21,7 +21,7 @@ const Wrapper = styled.section`
       border: none;
     }
   }
-`
+`;
 
 const Note =()=>{
   return (<Wrapper>

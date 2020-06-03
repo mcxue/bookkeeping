@@ -2,7 +2,6 @@ import React from 'react'
 import {Layout} from '../Components/Layout';
 import {Category} from './Account/Category';
 import {NumberPad} from './Account/NumberPad';
-import {ShowNumber} from './Account/ShowNumber';
 import {Note} from './Account/Note';
 import {Labels} from './Account/Labels';
 import styled from 'styled-components';
@@ -18,7 +17,6 @@ const Account = ()=>{
       <Category/>
       <Labels/>
       <Note/>
-      <ShowNumber/>
       <NumberPad/>
     </MyLayout>
   )

@@ -48,5 +48,5 @@ const Labels =()=>{
       </ul>
     </Wrapper>
   )
-}
+};
 export {Labels}
