@@ -1,51 +1,42 @@
 import styled from 'styled-components';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import add from 'icons/add.svg'
+import {NavLink} from 'react-router-dom';
+import {Icon} from './Icon';
 
-console.log(add);
-
-const NavWrapper = styled.nav`
-  line-height:24px;
-  box-shadow: 0 0 3px rgba(0,0,0,0.25);
-  > ul{
-    display:flex;
-    >li{
+const Wrapper = styled.nav`
+  background: #e5e5e5;
+  font-size: 13px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  >.item{
       width:20%;
-      vertical-align: center;
-      text-align: center;
-      padding:16px;
-    }
+      padding: 5px 0;
+      display:flex;
+      flex-direction:column;
+      justify-content: center;
+      align-items: center;
+      &.selected{
+        color:#00f;
+      }
   }
+    
 `;
 
-const Nav = ()=>{
+const Nav = () => {
   return (
-    <NavWrapper>
-      <ul>
-        <li>
-          
-          <Link to="/home">首页</Link>
-        </li>
-        <li>
-          <Link to="/detail">明细</Link>
-        </li>
-        <li>
-          <img src={add} alt=''/>
-          <Link to="/account">记账</Link>
-        </li>
-        <li>
-          <Link to="/label">标签</Link>
-        </li>
-        <li>
-          <Link to="/statistics">统计</Link>
-        </li>
-      </ul>
-    </NavWrapper>
-  )
+    <Wrapper>
+      <NavLink className='item' activeClassName="selected" to="/home"><Icon name='home'/>首页</NavLink>
+      <NavLink className='item' activeClassName="selected" to="/detail"><Icon name='detail'/>明细</NavLink>
+      <NavLink className='item' activeClassName="selected" to="/account"><Icon name='account'/>记账</NavLink>
+      <NavLink className='item' activeClassName="selected" to="/label"><Icon name='label'/>标签</NavLink>
+      <NavLink className='item' activeClassName="selected" to="/statistics"><Icon name='statistics'/>统计</NavLink>
+    </Wrapper>
+  );
 };
 
-export default Nav
+export default Nav;
 
 
 
