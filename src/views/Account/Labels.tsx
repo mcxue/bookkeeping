@@ -35,15 +35,19 @@ const Wrapper = styled.section`
     }
 `;
 
-const Labels: React.FC =()=>{
+type Props = {
+  value: string;
+  onChange: (label: string)=>void;
+}
+
+const Labels: React.FC<Props> =(props)=>{
   const [labels] = useState(['默认','衣','食','住','行']);
-  const [selectedLabel,setSelectedLabel] = useState('默认');
   return (
     <Wrapper>
       <div>标签</div>
       <ul>
         {labels.map((label)=>{
-            return <li key={label} className={selectedLabel===label ?'selected':''} onClick={()=>{setSelectedLabel(label)}}>{label}</li>
+            return <li key={label} className={props.value===label ?'selected':''} onClick={()=>{props.onChange(label)}}>{label}</li>
         })}
       </ul>
     </Wrapper>

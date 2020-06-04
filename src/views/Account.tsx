@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react';
 import {Layout} from '../Components/Layout';
 import {Category} from './Account/Category';
 import {NumberPad} from './Account/NumberPad';
@@ -11,11 +11,23 @@ const MyLayout = styled(Layout)`
   flex-direction: column;
 `;
 
+type Category = {
+  category: '-' | '+'
+}
+
 const Account = ()=>{
+  const [defaultChoice,setDefaultChoice] = useState({
+    category: '-',
+    label: '默认',
+    note: '',
+    amount: '0'
+  });
   return (
     <MyLayout name='记账'>
-      <Category/>
-      <Labels/>
+      <Category value={defaultChoice.category}
+                onChange={(value)=> setDefaultChoice({...defaultChoice,category: value})} />
+      <Labels value={defaultChoice.label}
+              onChange={(value)=>setDefaultChoice({...defaultChoice,label: value})} />
       <Note/>
       <NumberPad/>
     </MyLayout>

@@ -29,15 +29,19 @@ const Wrapper = styled.div`
   }
 `;
 
-const Category: React.FC = ()=>{
+type Props ={
+  value: string;
+  onChange: (value: string)=>void;
+}
+
+const Category: React.FC<Props> = (props)=>{
   const [categoryList] = useState<('+' | '-')[]>(['-','+']);
   const [categoryMap] = useState({'-': '支出','+':'收入'});
-  const [category,setCategory] = useState('-');
   return (
     <Wrapper>
       <ul>
         {categoryList.map((item)=>{
-          return <li key={item} className={category===item ?'selected':''} onClick={()=>{setCategory(item)}}
+          return <li key={item} className={props.value===item ?'selected':''} onClick={()=>{props.onChange(item)}}
           >{categoryMap[item]}</li>
         })}
       </ul>
