@@ -23,7 +23,7 @@ const Wrapper = styled.section`
   }
 `;
 
-const Note =()=>{
+const Note: React.FC =()=>{
   return (<Wrapper>
     <label>
       <span>备注</span>

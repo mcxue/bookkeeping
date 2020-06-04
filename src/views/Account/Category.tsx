@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Category = ()=>{
+const Category: React.FC = ()=>{
   const [categoryList] = useState<('+' | '-')[]>(['-','+']);
   const [categoryMap] = useState({'-': '支出','+':'收入'});
   const [category,setCategory] = useState('-');

@@ -28,7 +28,7 @@ type Props ={
   name:string;
 }
 
-const Bar = (props: Props)=>{
+const Bar: React.FunctionComponent<Props> = (props)=>{
   return (
     <Wrapper>
       <Icon name='person'/>

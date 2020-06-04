@@ -35,7 +35,7 @@ const Wrapper = styled.section`
     }
 `;
 
-const Labels =()=>{
+const Labels: React.FC =()=>{
   const [labels] = useState(['默认','衣','食','住','行']);
   const [selectedLabel,setSelectedLabel] = useState('默认');
   return (

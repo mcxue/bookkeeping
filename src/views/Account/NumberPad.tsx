@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Wrapper} from './NumberPadStyle';
 
-const NumberPad = () => {
+const NumberPad: React.FC = () => {
   const [output, setOutput] = useState('0');
   const editNumber = (e: React.MouseEvent) => {
     const content = (e.target as HTMLButtonElement).textContent as string;

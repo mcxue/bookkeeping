@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Icon = (props: Props)=>{
+const Icon: React.FunctionComponent<Props> = (props)=>{
   return (
     <Wrapper>
       <svg className='icon'>

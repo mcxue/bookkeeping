@@ -24,7 +24,7 @@ const Wrapper = styled.nav`
     
 `;
 
-const Nav = () => {
+const Nav: React.FC = () => {
   return (
     <Wrapper>
       <NavLink className='item' activeClassName="selected" to="/home"><Icon name='home'/>首页</NavLink>
