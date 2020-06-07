@@ -49,7 +49,7 @@ const Wrapper = styled.ul`
 `;
 
 const Detail = () => {
-  const {records} = useRecords();
+  const {records,deleteRecord} = useRecords();
   const reverseRecords = records.reverse();
   return (
     <Layout name='明细'>
@@ -58,7 +58,12 @@ const Detail = () => {
         {
           (reverseRecords as RecordItem[]).map((record: RecordItem) => {
             const {category,label, note, amount, time} = record;
-            return <li key={time}><span>{label}</span><span>{note}</span><span>{day(time).format('YYYY/MM/DD')}</span><span className={category==='-'?'expense':'income'}>{amount}</span></li>;
+            return <li key={time}>
+              <span>{label}</span>
+              <span>{note}</span>
+              <span onClick={()=>{deleteRecord(record)}}>{day(time).format('YYYY/MM/DD')}</span>
+              <span className={category==='-'?'expense':'income'}>{amount}</span>
+            </li>;
           })
         }
       </Wrapper>
