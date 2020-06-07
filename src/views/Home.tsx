@@ -1,7 +1,6 @@
 import React from 'react'
 import {Layout} from '../Components/Layout';
 import styled from 'styled-components';
-import dayjs from 'dayjs';
 import {Icon} from 'Components/Icon';
 import {ShowRecords} from '../Components/ShowRecords';
 import {getDate} from '../lib/getDate';
