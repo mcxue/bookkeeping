@@ -12,7 +12,6 @@ const LineChart = (props:any) => {
   const height = (document.documentElement.clientWidth) * 0.8;
   const {expenseArray,incomeArray,xArray} = props.value;
   useEffect(() => {
-    console.log(container.current);
     // @ts-ignore
     container.current.style = `width: ${width}px;height:${height}px`;
     // @ts-ignore

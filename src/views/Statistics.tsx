@@ -20,8 +20,6 @@ const Wrapper = styled.div`
 `;
 
 const Statistics = () => {
-  const expense = 999;
-  const income = 888;
   const {records} = useRecords();
   const {year} = getDate();
   const {month} = getDate();
@@ -39,6 +37,17 @@ const Statistics = () => {
     filterRecords.filter((record: RecordItem) => {
       return record.category === '+';
     });
+  const accountTotal = () => {
+    let expense = 0;
+    let income = 0;
+    for (let i = 0; i < expenseRecords.length; i++) {
+      expense += parseFloat(expenseRecords[i].amount);
+    }
+    for (let i = 0; i < incomeRecords.length; i++) {
+      income += parseFloat(incomeRecords[i].amount);
+    }
+    return {expense,income}
+  };
   const array = () => {
     const expenseArray = [];
     const incomeArray = [];
@@ -65,7 +74,7 @@ const Statistics = () => {
         <div className="topBar">
         </div>
         <LineChart value={array()}/>
-        <div className="show"><span>支出: {expense} 元 | 收入: {income} 元</span></div>
+        <div className="show"><span>支出: {accountTotal().expense} 元 | 收入: {accountTotal().income} 元</span></div>
       </Wrapper>
     </Layout>
   );
