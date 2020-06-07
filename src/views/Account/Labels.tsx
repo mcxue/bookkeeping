@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
+import {useLabels} from '../../store/useLabels';
 
 const Wrapper = styled.section`
     flex-grow: 1;
@@ -41,7 +42,7 @@ type Props = {
 }
 
 const Labels: React.FC<Props> =(props)=>{
-  const [labels] = useState(['默认','衣','食','住','行']);
+  const {labels} = useLabels();
   return (
     <Wrapper>
       <div>标签</div>

@@ -11,8 +11,12 @@ const MyLayout = styled(Layout)`
   flex-direction: column;
 `;
 
-type Category = {
-  category: '-' | '+'
+type RecordItem = {
+  category: string,
+  label: string,
+  note: string,
+  amount: string,
+  createdTime?: string;
 }
 
 const Account = ()=>{
@@ -28,8 +32,8 @@ const Account = ()=>{
                 onChange={(value)=> setDefaultChoice({...defaultChoice,category: value})} />
       <Labels value={defaultChoice.label}
               onChange={(value)=>setDefaultChoice({...defaultChoice,label: value})} />
-      <Note/>
-      <NumberPad/>
+      <Note />
+      <NumberPad value={defaultChoice}/>
     </MyLayout>
   )
 };

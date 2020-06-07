@@ -1,8 +1,15 @@
 import React, {useState} from 'react';
 import {Wrapper} from './NumberPadStyle';
+import {useRecords} from '../../store/useRecords';
 
-const NumberPad: React.FC = () => {
+type Props = {
+  value: RecordItem
+}
+
+const NumberPad: React.FC<Props>= (props) => {
   const [output, setOutput] = useState('0');
+  const {addRecord} = useRecords();
+
   const editNumber = (e: React.MouseEvent) => {
     const content = (e.target as HTMLButtonElement).textContent as string;
     if ('0123456789.'.indexOf(content) >= 0 && output.length <= 16) {
@@ -23,8 +30,9 @@ const NumberPad: React.FC = () => {
       }
     } else if (content === '清空') {
       setOutput('0');
-    } else if (content === '确定') {
-    
+    } else if (content === '确认') {
+      props.value.time = new Date().toISOString();
+      addRecord(props.value);
     }
   };
   return (<Wrapper onClick={editNumber}>
