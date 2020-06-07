@@ -31,12 +31,10 @@ const Wrapper = styled.ul`
             float: right;
             font-size: 10px;
             color: #999999;
-            margin-top:6px;
+            margin-top: 5px;
           }
           &:nth-child(4){
             float: right;
-            font-size: 10px;
-            margin-top:6px;
             &.expense{
               color: red;
             }
@@ -62,7 +60,7 @@ const Detail = () => {
               <span>{label}</span>
               <span>{note}</span>
               <span onClick={()=>{deleteRecord(record)}}>{day(time).format('YYYY/MM/DD')}</span>
-              <span className={category==='-'?'expense':'income'}>{amount}</span>
+              <span className={category==='-'?'expense':'income'}>{`￥${amount}`}</span>
             </li>;
           })
         }
