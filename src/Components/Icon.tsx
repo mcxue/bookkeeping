@@ -29,10 +29,11 @@ const Wrapper = styled.div`
   
 `;
 
+
 const Icon: React.FunctionComponent<any> = (props)=>{
   return (
     <Wrapper>
-      <svg className={`icon ${props.className ?props.className:''}`}>
+      <svg className={`icon ${props.className ?props.className:''}`} onClick={props.edit}>
         <use xlinkHref={'#'+props.name}/>
       </svg>
     </Wrapper>

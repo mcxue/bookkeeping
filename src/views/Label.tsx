@@ -1,18 +1,11 @@
-import React from 'react'
+import React from 'react';
 import {Layout} from '../Components/Layout';
 import {useLabels} from '../store/useLabels';
 import styled from 'styled-components';
 import {Icon} from '../Components/Icon';
+import {TopBar} from '../Components/TopBar';
 
 const Wrapper = styled.div`
-  .top {
-    background: #0066cc;
-    line-height: 24px;
-    font-size: 16px;
-    color: white;
-    vertical-align: center;
-    padding: 13px 15px;
-  }
   >ul>li {
     background: #ffffff;
     margin: 8px 0;
@@ -40,29 +33,33 @@ const Wrapper = styled.div`
   
 `;
 
-const Label:React.FC = ()=>{
-  const {labels} = useLabels();
+const Label: React.FC = () => {
+  const {labels, editLabel, deleteLabel, addLabel} = useLabels();
   return (
     <Layout name='标签'>
       <Wrapper>
-        <div className='top'>全部标签</div>
+        <TopBar name='全部标签'/>
         <ul>
-          {labels.map((label)=>{
+          {labels.map((label) => {
             return <li key={label}>
               <span>{label}</span>
               <div className='icons'>
-                <Icon name='edit' className='edit' />
-                <Icon name='delete' className='delete' />
+                <Icon name='edit' className='edit' edit={() => {
+                  editLabel(label);
+                }}/>
+                <Icon name='delete' className='delete' edit={() => {
+                  deleteLabel(label);
+                }}/>
               </div>
-            </li>
+            </li>;
           })}
         </ul>
         <div className='createLabel'>
-          <button>新建标签</button>
+          <button onClick={()=>{addLabel()}}>新建标签</button>
         </div>
       </Wrapper>
     </Layout>
-  )
+  );
 };
 
-export {Label}
+export {Label};

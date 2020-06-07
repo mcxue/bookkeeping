@@ -9,11 +9,13 @@ const useRecords = ()=>{
   const saveRecords = (records: RecordItem[])=>{
     window.localStorage.setItem('localRecords',JSON.stringify(records))
   };
+  
   const addRecord = (oneRecord: RecordItem)=>{
     const newRecords = JSON.parse(JSON.stringify(records));
     newRecords.push(oneRecord);
-    setRecords(newRecords);
     saveRecords(newRecords);
+    window.alert('记账成功');
+    setRecords(newRecords);
   };
   return {records,addRecord}
 };
