@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import dayjs from 'dayjs';
 import {Icon} from 'Components/Icon';
 import {ShowRecords} from '../Components/ShowRecords';
+import {getDate} from '../lib/getDate';
 
 const Wrapper = styled.div`
   .TopBar {
@@ -11,11 +12,11 @@ const Wrapper = styled.div`
     height: 170px;
     color: white;
     .text1 {
-      padding: 2px 15px;
+      padding: 13px 15px;
       font-size: 16px;
     }
     .text2 {
-      padding: 15px 30px;
+      padding: 4px 30px;
       text-align: center;
       font-size: 35px;
     }
@@ -37,17 +38,12 @@ const Wrapper = styled.div`
 `
 
 const Home = ()=>{
-  const todayTime = new Date().toISOString();
-  const year = dayjs(todayTime).format('YYYY');
-  const month = dayjs(todayTime).format('MM');
-  const day = dayjs(todayTime).format('DD');
-  
   return (
     <Layout name='首页'>
       <Wrapper>
         <div className="TopBar">
           <div className="text1">今天是</div>
-          <div className="text2">{year}年{month}月{day}日</div>
+          <div className="text2">{getDate().year}年{getDate().month}月{getDate().day}日</div>
           <div className="text3">点击下方「记账」记一笔吧~</div>
         </div>
         <div className="recordsWrapper">
