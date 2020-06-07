@@ -11,13 +11,6 @@ const MyLayout = styled(Layout)`
   flex-direction: column;
 `;
 
-type RecordItem = {
-  category: string,
-  label: string,
-  note: string,
-  amount: string,
-  createdTime?: string;
-}
 
 const Account = ()=>{
   const [defaultChoice,setDefaultChoice] = useState({

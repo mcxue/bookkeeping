@@ -13,9 +13,6 @@ const Wrapper = styled.div`
   }
 `;
 
-
-
-
 const Layout = (props: any)=>{
   return (
     <Wrapper>

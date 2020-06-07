@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import classnames from 'classnames';
 
 let importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireContext.keys().forEach(requireContext);
 try {importAll(require.context('icons', true, /\.svg$/));} catch (error) {console.log(error);}
@@ -14,13 +15,24 @@ const Wrapper = styled.div`
        vertical-align: -0.15em;
        fill: currentColor;
        overflow: hidden;
+       &.delete{
+          width:20px;height:20px;
+          color: #f00;
+          margin: 0 8px;
+       }
+       &.edit{
+          width:20px;height:20px;
+          color: #00f;
+          margin: 0 8px;
+       }
   }
+  
 `;
 
-const Icon: React.FunctionComponent<Props> = (props)=>{
+const Icon: React.FunctionComponent<any> = (props)=>{
   return (
     <Wrapper>
-      <svg className='icon'>
+      <svg className={`icon ${props.className ?props.className:''}`}>
         <use xlinkHref={'#'+props.name}/>
       </svg>
     </Wrapper>
