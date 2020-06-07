@@ -3,6 +3,7 @@ import {Layout} from 'Components/Layout';
 import {TopBar} from 'Components/TopBar';
 import {useRecords} from '../store/useRecords';
 import styled from 'styled-components';
+import day from 'dayjs';
 
 const Wrapper = styled.ul`
 
@@ -11,7 +12,7 @@ const Wrapper = styled.ul`
         background: #fff;
         border-radius: 4px;
         margin: 10px 0;
-
+        vertical-align: center;
         &::after {
         content: '';
         display: block;
@@ -30,10 +31,12 @@ const Wrapper = styled.ul`
             float: right;
             font-size: 10px;
             color: #999999;
+            margin-top:6px;
           }
           &:nth-child(4){
             float: right;
             font-size: 10px;
+            margin-top:6px;
             &.expense{
               color: red;
             }
@@ -57,7 +60,7 @@ const Detail = () => {
         {
           displayRecords.map((record: RecordItem) => {
             const {category,label, note, amount, time} = record;
-            return <li key={time}><span>{label}</span><span>{note}</span><span>{time}</span><span className={category==='-'?'expense':'income'}>{amount}</span></li>;
+            return <li key={time}><span>{label}</span><span>{note}</span><span>{day(time).format('YYYY/MM/DD')}</span><span className={category==='-'?'expense':'income'}>{amount}</span></li>;
           })
         }
       </Wrapper>

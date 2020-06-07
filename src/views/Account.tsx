@@ -21,13 +21,14 @@ const Account = ()=>{
     note: '',
     amount: '0'
   });
+  
   return (
     <MyLayout name='记账'>
       <Category value={defaultChoice.category}
                 onChange={(value)=> setDefaultChoice({...defaultChoice,category: value})} />
       <Labels value={defaultChoice.label}
               onChange={(value)=>setDefaultChoice({...defaultChoice,label: value})} />
-      <Note />
+      <Note onChange={(value)=>setDefaultChoice({...defaultChoice,note: value})}/>
       <NumberPad value={defaultChoice}/>
     </MyLayout>
   )

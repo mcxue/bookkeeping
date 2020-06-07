@@ -31,8 +31,9 @@ const NumberPad: React.FC<Props>= (props) => {
     } else if (content === '清空') {
       setOutput('0');
     } else if (content === '确认') {
-      props.value.time = new Date().toISOString();
-      addRecord(props.value);
+      const newRecord = {...props.value,amount:output,time:new Date().toISOString()};
+      console.log(newRecord);
+      addRecord(newRecord);
     }
   };
   return (<Wrapper onClick={editNumber}>
