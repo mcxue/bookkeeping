@@ -49,7 +49,7 @@ type Props = {
 
 const ShowRecords: React.FC<Props>= (props)=>{
   const {records,deleteRecord} = useRecords();
-  const reverseRecords = props.displayNumber? records.slice(0,props.displayNumber).reverse(): records.reverse();
+  const reverseRecords = props.displayNumber? records.reverse().slice(0,props.displayNumber): records.reverse();
   return (
     <Wrapper>
       {
