@@ -15,6 +15,14 @@ const MyLayout = styled(Layout)`
 
 const Account = ()=>{
   const defaultLabel = useLabels().labels[0];
+  const toDefault = ()=>{
+    setDefaultChoice({
+      category: '-',
+      label: defaultLabel,
+      note: '',
+      amount: '0'
+    })
+  };
   const [defaultChoice,setDefaultChoice] = useState({
     category: '-',
     label: defaultLabel,
@@ -28,8 +36,9 @@ const Account = ()=>{
                 onChange={(value)=> setDefaultChoice({...defaultChoice,category: value})} />
       <Labels value={defaultChoice.label}
               onChange={(value)=>setDefaultChoice({...defaultChoice,label: value})} />
-      <Note onChange={(value)=>setDefaultChoice({...defaultChoice,note: value})}/>
-      <NumberPad value={defaultChoice}/>
+      <Note value={defaultChoice.note}
+            onChange={(value)=>setDefaultChoice({...defaultChoice,note: value})}/>
+      <NumberPad value={defaultChoice} toDefault={()=>{toDefault()}}/>
     </MyLayout>
   )
 };

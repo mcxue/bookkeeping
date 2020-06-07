@@ -4,12 +4,12 @@ import {useRecords} from '../../store/useRecords';
 
 type Props = {
   value: RecordItem
+  toDefault:()=>void;
 }
 
 const NumberPad: React.FC<Props>= (props) => {
   const [output, setOutput] = useState('0');
   const {addRecord} = useRecords();
-
   const editNumber = (e: React.MouseEvent) => {
     const content = (e.target as HTMLButtonElement).textContent as string;
     if ('0123456789.'.indexOf(content) >= 0 && output.length <= 16) {
@@ -33,6 +33,8 @@ const NumberPad: React.FC<Props>= (props) => {
     } else if (content === '确认') {
       const newRecord = {...props.value,amount:output,time:new Date().toISOString()};
       addRecord(newRecord);
+      props.toDefault();
+      setOutput('0');
     }
   };
   return (<Wrapper onClick={editNumber}>
