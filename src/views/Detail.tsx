@@ -50,15 +50,13 @@ const Wrapper = styled.ul`
 
 const Detail = () => {
   const {records} = useRecords();
-  const displayRecords = records.sort((a:any,b:any)=>{
-    return b.time - a.time
-  });
+  const reverseRecords = records.reverse();
   return (
     <Layout name='明细'>
       <TopBar name='全部收支'/>
       <Wrapper>
         {
-          displayRecords.map((record: RecordItem) => {
+          (reverseRecords as RecordItem[]).map((record: RecordItem) => {
             const {category,label, note, amount, time} = record;
             return <li key={time}><span>{label}</span><span>{note}</span><span>{day(time).format('YYYY/MM/DD')}</span><span className={category==='-'?'expense':'income'}>{amount}</span></li>;
           })

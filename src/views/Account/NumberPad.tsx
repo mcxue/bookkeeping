@@ -32,7 +32,6 @@ const NumberPad: React.FC<Props>= (props) => {
       setOutput('0');
     } else if (content === '确认') {
       const newRecord = {...props.value,amount:output,time:new Date().toISOString()};
-      console.log(newRecord);
       addRecord(newRecord);
     }
   };
