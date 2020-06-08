@@ -1,44 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 浪浪记账 React 版
 
-## Available Scripts
+## 一、简介
 
-In the project directory, you can run:
+* 浪浪记账是一款基于 React、React Router、自定义Hooks、TypeScript、LocalStorage 实现的简单又好看的记账应用
+* 特点是一键极速记账 → [项目预览](http://mcx2020.gitee.io/bookkeeping)
+* 该项目使我对 TypeScript、Webpack 和 Hooks API、SVG Icon有了深入的理解，我将对这些理解记录到了博客上
+* 这个项目还做了一款 Vue 版 → [传送门](http://www.github.com/mcx2020/accounting)
 
-### `yarn start`
+## 二、知识
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+在项目中遇到了很多零零散散的知识，在此汇集一下
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* React Router
+* styled-components 的 CSS 方案
+* 引入 svg 并封装
+* 消除重复，封装的练习
+* React 函数组件
+* TypeScript
+* 自定义 Hook
+* localStorage

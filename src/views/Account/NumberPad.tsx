@@ -31,10 +31,15 @@ const NumberPad: React.FC<Props>= (props) => {
     } else if (content === '清空') {
       setOutput('0');
     } else if (content === '确认') {
-      const newRecord = {...props.value,amount:output,time:new Date().toISOString()};
-      addRecord(newRecord);
-      props.toDefault();
-      setOutput('0');
+      if(output ==='0'){
+        window.alert('金额忘记写啦')
+      }else{
+        const newRecord = {...props.value,amount:output,time:new Date().toISOString()};
+        addRecord(newRecord);
+        props.toDefault();
+        setOutput('0');
+      }
+      
     }
   };
   return (<Wrapper onClick={editNumber}>
