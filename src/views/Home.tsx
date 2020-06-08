@@ -31,10 +31,9 @@ const Wrapper = styled.div`
       font-weight: bold;
       color: #000;
       display: flex;
-      margin:10px 10px;
+      margin:10px 10px 0 10px;
       align-items: center;
-      
-`
+`;
 
 const Home = ()=>{
   return (

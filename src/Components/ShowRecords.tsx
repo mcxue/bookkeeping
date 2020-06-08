@@ -43,6 +43,10 @@ const Wrapper = styled.ul`
       }
 `;
 
+const NotRecords = styled.div`
+  padding:10px 20px;
+`
+
 type Props = {
   displayNumber?: number
 }
@@ -50,21 +54,28 @@ type Props = {
 const ShowRecords: React.FC<Props>= (props)=>{
   const {records,deleteRecord} = useRecords();
   const reverseRecords = props.displayNumber? records.reverse().slice(0,props.displayNumber): records.reverse();
-  return (
-    <Wrapper>
-      {
-        (reverseRecords as RecordItem[]).map((record: RecordItem) => {
-          const {category,label, note, amount, time} = record;
-          return <li key={time}>
-            <span>{label}</span>
-            <span>{note}</span>
-            <span onClick={()=>{deleteRecord(record)}}>{day(time).format('YYYY/MM/DD')}</span>
-            <span className={category==='-'?'expense':'income'}>{`￥${amount}`}</span>
-          </li>;
-        })
-      }
+  if(records ===[]){
+    return (
+      <Wrapper>
+        {
+          (reverseRecords as RecordItem[]).map((record: RecordItem) => {
+            const {category,label, note, amount, time} = record;
+            return <li key={time}>
+              <span>{label}</span>
+              <span>{note}</span>
+              <span onClick={()=>{deleteRecord(record)}}>{day(time).format('YYYY/MM/DD')}</span>
+              <span className={category==='-'?'expense':'income'}>{`￥${amount}`}</span>
+            </li>;
+          })
+        }
+      </Wrapper>
+    )
+  }else{
+    return <Wrapper>
+      <NotRecords>暂无记录</NotRecords>
     </Wrapper>
-  )
+  }
+  
 };
 
 export {ShowRecords};
