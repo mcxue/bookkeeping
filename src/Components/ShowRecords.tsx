@@ -45,7 +45,7 @@ const Wrapper = styled.ul`
 
 const NotRecords = styled.div`
   padding:10px 20px;
-`
+`;
 
 type Props = {
   displayNumber?: number
@@ -54,10 +54,9 @@ type Props = {
 const ShowRecords: React.FC<Props>= (props)=>{
   const {records,deleteRecord} = useRecords();
   const reverseRecords = props.displayNumber? records.reverse().slice(0,props.displayNumber): records.reverse();
-  if(records ===[]){
     return (
       <Wrapper>
-        {
+        {records ===[]?<NotRecords>暂无记录</NotRecords>:
           (reverseRecords as RecordItem[]).map((record: RecordItem) => {
             const {category,label, note, amount, time} = record;
             return <li key={time}>
@@ -70,12 +69,6 @@ const ShowRecords: React.FC<Props>= (props)=>{
         }
       </Wrapper>
     )
-  }else{
-    return <Wrapper>
-      <NotRecords>暂无记录</NotRecords>
-    </Wrapper>
-  }
-  
 };
 
 export {ShowRecords};
