@@ -6,7 +6,7 @@ import Nav from './Nav';
 const Wrapper = styled.div`
   display: flex;
   height:100vh;
-  min-height: 768px;
+  min-height: 620px;
   flex-direction: column;
   >main{
     flex-grow: 1;
