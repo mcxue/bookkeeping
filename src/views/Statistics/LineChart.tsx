@@ -58,7 +58,7 @@ const LineChart = (props:any) => {
     };
     // @ts-ignore
     myChart.setOption(option);
-  }, []);// mounted 第一次渲染
+  }, [expenseArray,height,incomeArray,width,xArray]);
   return <Wrapper ref={container}/>;
 };
 

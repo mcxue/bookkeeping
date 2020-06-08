@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 import {Bar} from './Bar';
 import Nav from './Nav';
@@ -6,14 +6,19 @@ import Nav from './Nav';
 const Wrapper = styled.div`
   display: flex;
   height:100vh;
+  min-height: 768px;
   flex-direction: column;
   >main{
     flex-grow: 1;
     overflow: auto;
   }
 `;
+type Props = {
+  name: string;
+  className?: string;
+}
 
-const Layout = (props: any)=>{
+const Layout:React.FC<Props> = (props)=>{
   return (
     <Wrapper>
       <Bar name={props.name}/>
